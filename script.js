@@ -12,7 +12,7 @@ function multiply(x1, x2){
 
 function divide(x1, x2){
     if (x2 !== 0)
-        return Math.round(x1/x2*10**12)/10**12;
+        return x1/x2;
     return "You really tried it huh.";
 }
 let vals = [];
@@ -63,7 +63,7 @@ function operate(op){
         arith1 = op;
         displayVal = 0;
         vals = [ans];
-        return ans;
+        return Math.round(ans*10**8)/10**8;
     }
     if (op === "="){
         if (typeof vals[0] === "number" && typeof vals[1] === "number"){
@@ -75,7 +75,7 @@ function operate(op){
         arith1 = "=";
         displayVal = 0;
         vals = [];
-        return ans;
+        return Math.round(ans*10**12)/10**12;
     }
 }
 
