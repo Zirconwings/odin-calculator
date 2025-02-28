@@ -28,7 +28,13 @@ function operate(op){
         return 0;
     }
     if (op === "."){
-        displayVal = displayVal.toString() + ".";
+        vals.pop()
+        if (displayVal.toString().includes(".")){
+            return displayVal;
+        }
+        displayVal = displayVal + ".";
+        ans = +displayVal;
+        return displayVal;
     }
     if (op === "%"){
         ans /= 100;
@@ -157,10 +163,8 @@ const opBtns = document.querySelectorAll(".operation");
 opBtns.forEach((button)=>{
     button.addEventListener("click",()=>{
         vals.push(ans);
-        console.log(vals);
-        console.log(ans);
+        +displayVal;
         display.textContent = operate(button.textContent);
-        console.log(vals);
     })
 })
 
